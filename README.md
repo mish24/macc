@@ -1,4 +1,4 @@
-#MACC
+#Mobile App Control Center (MACC)
 MACC is a backend platform for the Peace Corps mobile applications - Malaria and PCSA. The Mobile App Control Center allows the volunteers at Peace Corps HQ to send or edit any information in their mobile applications through a set of APIs.
 
 #On Malaria App
