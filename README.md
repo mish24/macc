@@ -8,5 +8,5 @@ MACC works on Malaria Prevention application as infoHub, a portal where posts ca
 MACC works on PCSA mobile and web apps, MACC makes the mobile apps fully dynamic and all the information present in the mobile apps is fetched from MACC through APIs.
 
 
-Installation Guide - [here](https://github.com/systers/app-web-server/blob/develop/docs/API%20Documentation.pdf)
+Installation Guide - [here](https://github.com/systers/macc/blob/develop/docs/Installation%20Guide.md)
 API Documentation -  [here](https://docs.google.com/document/d/1uQ42HQGIEOWoD-PtRRGoKLN15S-EhEkWgsIxiceNMGI/edit?usp=sharing)
