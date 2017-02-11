@@ -117,17 +117,17 @@ def edit_contact(request, contact_id):
 
             # need to get the original title_post and description_post
             # before it is changed when calling instance on PostForm
-            orig_title = contact.title
-            orig_desc = contact.description
+            orig_office = contact.office_name
+            orig_number = contact.contact_number
             form = ContactForm(request.POST, instance=contact)
 
             if form.is_valid():
 
-                edited_name = form.cleaned_data['office_name']
+                edited_office = form.cleaned_data['office_name']
                 edited_number = form.cleaned_data['contact_number']
 
-                if (orig_title != edited_name) or \
-                        (orig_desc != edited_number):
+                if (orig_office != edited_office) or \
+                        (orig_number != edited_number):
                     form.save()
 
                 return render(request,
@@ -138,7 +138,7 @@ def edit_contact(request, contact_id):
                               'pcsa_GHN/edit_contact.html',
                               {'form': form, 'contact': contact})
         else:
-            form = ghnPostForm(instance=contact)
+            form = ContactForm(instance=contact)
             return render(request,
                           'pcsa_GHN/edit_contact.html',
                           {'form': form, 'contact': contact})
@@ -197,7 +197,7 @@ def view_contact(request, contact_id):
     contact = Contact.objects.get(pk = contact_id)
     if contact:
         return render(request,
-                      'pcsa_GHN/view_post.html',
+                      'pcsa_GHN/view_contact.html',
                       {'contact': contact})
     else:
         raise Http404

@@ -9,13 +9,13 @@
     <form class="form-horizontal" action="{% url 'pcsa_GHN:edit_contact' contact.id %}" method="post">
         {% csrf_token %}
         <div class="form-group">
-            <label class="col-sm-2 control-label inverted-font">Title</label>
+            <label class="col-sm-2 control-label inverted-font">Office Number</label>
             <div class="col-sm-9">
-                <input class="form-control" type="text" name="Office Name" value="{% if form.title.value %}{{ form.title.value }}{% endif %}">
+                <input class="form-control" type="text" name="Office Name" value="{% if form.office_name.value %}{{ form.office_name.value }}{% endif %}">
                 <p class="help-block inverted-font">
                     <strong>
-                        {% if form.title.errors %}
-                            {% for error in form.title.errors %}
+                        {% if form.office_name.errors %}
+                            {% for error in form.office_name.errors %}
                                 {{ error }}
                             {% endfor %}
                         {% endif %}
@@ -24,13 +24,13 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label inverted-font">Description</label>
+            <label class="col-sm-2 control-label inverted-font">Phone Number</label>
             <div class="col-sm-9">
-                <input class="form-control" type="number" name="description">{% if form.title.value %}{{ form.description.value }}{% endif %} />
+                <input class="form-control" type="number" name="contact_number" value="{% if form.title.value %}{{ form.description.value }}{% endif %}" >
                 <p class="help-block inverted-font">
                     <strong>
-                        {% if form.description.errors %}
-                            {% for error in form.description.errors %}
+                        {% if form.contact_number.errors %}
+                            {% for error in form.contact_number.errors %}
                                 {{ error }}
                             {% endfor %}
                         {% endif %}
