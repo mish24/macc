@@ -36,15 +36,15 @@
                             <li>
                                 <div class="navbar-btn-border">
                                     <!--Update profile url so that its not hardcoded-->
-                                    <a href="/profile/?id={{ user.id }}">
-                                        <h4 class="navbar-btn-text">Profile</h4>
+                                    <a class="btn btn-default" href="/profile/?id={{ user.id }}" role="button">
+                                        <h5 class="navbar-btn-text">Profile</h4>
                                     </a>
                                 </div>
                             </li>
                             <li>
                                 <div class="navbar-btn-border">
-                                    <a href="{% url 'webhub:logout_do' %}">
-                                        <h4 class="navbar-btn-text">Log Out</h4>
+                                    <a class="btn btn-default" href="{% url 'webhub:logout_do' %}" role="button">
+                                        <h5 class="navbar-btn-text">Log Out</h4>
                                     </a>
                                 </div>
                             </li>
