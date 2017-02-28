@@ -40,19 +40,15 @@ email : ranihaileydesai@gmail.com
     <section class="row">
         <div class="content">
             
-                <h3>User profile</h3>
-                <div class="image">
-                <img src={{profiler.image}} >
-                <h4>User | {{profiler.user}}</h4>
-                <p>...</p>
-                </div>
+                <h3><b>User Profile</b></h3>
+               
                 <ul>
-                    <li><span>First Name </span>: {{profiler.user.first_name}}</li>
-                    <li><span>Last Name </span>: {{profiler.user.last_name}}</li>
-                    <li><span>Email Address </span>: {{profiler.user.email}}</li>
-                    <li><span>Mobile </span>:   {{profiler.phone}} </li>
-                    <li><span>Gender </span>:   {{profiler.gender}}</li>
-                    <li><span>Location </span>:   {{profiler.location}} </li>
+                    <li><span><font color="black">  First Name </span>: </font>{{profiler.user.first_name}}</li>
+                    <li><span><font color="black">Last Name </span>: </font>{{profiler.user.last_name}}</li>
+                    <li><span><font color="black">Email Address </span>: </font>{{profiler.user.email}}</li>
+                    <li><span><font color="black">Mobile </span>:   </font>{{profiler.phone}} </li>
+                    <li><span><font color="black">Gender </span>:  </font> {{profiler.gender}}</li>
+                    <li><span><font color="black">Location </span>:   </font>{{profiler.location}} </li>
                 </ul>
                 <div class="options">
                     {% if profiler.user.username == pcuser.user.username %}
