@@ -2,9 +2,12 @@ import uuid
 
 import jinja2
 from django.contrib.auth import authenticate, login, logout
+from django.utils.decorators import method_decorator
+from django.http import HttpResponseForbidden
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from jinja2.ext import loopcontrols
 from rest_framework.decorators import api_view
@@ -13,6 +16,7 @@ from rest_framework.response import Response
 from signup.models import *
 from webhub.checker import check
 from webhub.serializers import *
+
 
 jinja_environ = jinja2.Environment(loader=jinja2.FileSystemLoader(['profiles/templates/profiles']), extensions=[loopcontrols])
 
@@ -48,17 +52,18 @@ def logout_do(request):
         redirect_url = request.REQUEST['redirect_url']
     return HttpResponse(jinja_environ.get_template('redirect.html').render({"pcuser":None,"redirect_url":redirect_url}))
     
-    
+
 def profile(request):
-    
-    try:
-        pcuserid = request.REQUEST['id']
-        if pcuserid == request.user.pcuser.pk:
-            return HttpResponse(jinja_environ.get_template('profile.html').render({"pcuser":request.user.pcuser, "profiler":request.user.pcuser}))
-        else:
-            return HttpResponse(jinja_environ.get_template('profile.html').render({"pcuser":request.user.pcuser, "profiler":Pcuser.objects.get(pk=pcuserid)}))
-    except:
-        return HttpResponse(jinja_environ.get_template('profile.html').render({"pcuser":request.user.pcuser, "profiler":request.user.pcuser}))
+
+	try:
+		pcuserid = request.REQUEST['id']
+		profiler = Pcuser.objects.get(pk=pcuserid)
+		if pcuserid == request.user.pcuser.pk:
+			return HttpResponse(jinja_environ.get_template('profile.html').render({"pcuser":request.user.pcuser, "profiler":request.user.pcuser}))
+		else:
+			return HttpResponse(jinja_environ.get_template('profile.html').render({"pcuser":request.user.pcuser, "profiler":request.user.pcuser}))
+	except:
+		return HttpResponseForbidden("You can't view someone else's details")
 
 
 #Calls the edit profile page. The autofill data is sent too.
@@ -66,7 +71,7 @@ def edit_profile_page(request):
     if not request.user.is_authenticated():
         return HttpResponse(jinja_environ.get_template('index.html').render({"pcuser":None}))
     pcuserid = request.REQUEST['id']
-    return HttpResponse(jinja_environ.get_template('edit_profile.html').render({"pcuser":Pcuser.objects.get(pk=pcuserid)}))
+    return HttpResponse(jinja_environ.get_template('edit_profile.html').render({"pcuser":request.user.pcuser}))
 
 #Edit profile function. Called after a user presses done in edit profile. New data is requested from frontend and stored.
 @csrf_exempt
