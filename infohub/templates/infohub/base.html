@@ -6,14 +6,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         <link href="{% static "infohub/bootstrap-3.3.5-dist/css/bootstrap.min.css" %}" rel="stylesheet">
         <link href="{% static "infohub/bootstrap-css-custom/navbar-default.css" %}" rel="stylesheet">
         <link href="{% static "infohub/bootstrap-css-custom/sticky-footer.css" %}" rel="stylesheet">
@@ -33,21 +33,20 @@
                 {% if user.is_authenticated %}
                     <div class="navbar-collapse collapse navbar-responsive-collapse">
                         <ul class="nav navbar-nav navbar-right text-uppercase">
-                            <li>
-                                <div class="navbar-btn-border">
-                                    <!--Update profile url so that its not hardcoded-->
-                                    <a class="btn btn-default" href="/profile/?id={{ user.id }}" role="button">
+                              <p>&nbsp;</p>
+                              <div class = "row">
+                                <div class="col-md-5">
+                                    <!--Update profile url so that itsnot hardcoded-->
+                                    <a class="btn btn-primary" href="/profile/?id={{ user.id }}" role="button">
                                         <h5 class="navbar-btn-text">Profile</h4>
                                     </a>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="navbar-btn-border">
-                                    <a class="btn btn-default" href="{% url 'webhub:logout_do' %}" role="button">
+                                <div class="col-md-5 text-right">
+                                    <a class="btn btn-primary" href="{% url 'webhub:logout_do' %}" role="button">
                                         <h5 class="navbar-btn-text">Log Out</h4>
                                     </a>
                                 </div>
-                            </li>
+                              </div>
                         </ul>
                     </div>
                 {% endif %}

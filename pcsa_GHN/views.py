@@ -129,11 +129,10 @@ def edit_contact(request, contact_id):
 
                 if (orig_office != edited_office) or \
                         (orig_number != edited_number):
-                    form.save()
+                    contact = create_contact_from_form(form)
 
-                return render(request,
-                              'pcsa_GHN/home.html',
-                              {'post_list': post_list, 'contact_list': contact_list})
+                return HttpResponseRedirect(reverse('pcsa_GHN:view_contact',
+							args=(contact_id,)))
             else:
                 return render(request,
                               'pcsa_GHN/edit_contact.html',
@@ -195,7 +194,7 @@ def view_contact(request, contact_id):
     if not request.user.is_authenticated():
         return HttpResponseRedirect(reverse('webhub:index'))
 
-    contact = Contact.objects.get(pk = contact_id)
+    contact = get_contact_by_id(contact_id)
     if contact:
         return render(request,
                       'pcsa_GHN/view_contact.html',

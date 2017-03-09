@@ -13,13 +13,47 @@ The instructions given below are for software developers who want to work on [ou
 
 3. Create a new issue, a community member will get back to you and once approved, send a pull request for the same.
 
-4. Please go through the issue list first (both open as well as closed) amd make sure the issue you are reporting does not replicate the issues already reported. Clearly explain what the exact issue is and provide the steps to recreate it as well, if possible.
+4. All the PRs are needed to be sent to the [develop](https://github.com/systers/macc) branch.
 
-5. If you have issues on multiple pages, then report them separately. Do not combine them into a single issue.
+## Avoid doing the following mistakes
+1. Fix a new issue and submit a PR without reporting and getting it approved at first.
 
-6. All the PRs are needed to be sent to the [develop](https://github.com/systers/macc) branch. Do not add merge commits to your PR.
+2. Fix an issue assigned to somebody else and submit a PR before the assignee does. 
 
-7. If you're sending a PR for UI improvement or fix, make sure you add a screenshot to validate the changes you've made. Give a brief description of the steps taken by you.
+3. Report issues which are previously reported by others. (Please check the closed issues too before you report an issue).
+
+4. Suggest completely new developments in the issue list. (Please use the mailing list for this kind of suggestions. Use issue list to suggest bugs/features in the already implemented sections.)
+
+## Best Practices
+### For Issue Reporting
+1. Go through the Issue List and see whether the issue you found or any related issue is already reported.
+
+2. If you don't find the issue you are reporting in issue list, check whether it is reported and closed (present in closed issue list).
+
+3. If the issue is new, report the issue as a new one with following:
+     * Screen shot if possible
+     * Short description for the title
+     * A detailed description with steps to recreate the issue (for bugs)
+     * A description of how the issue will improve the application ( for enhancements)
+
+### For Pull Requests
+1. Use meaningful commit messages.
+
+2. Do not over commit. (Do not include multiple commits for a small change)
+
+3. Do not add the merge commits to the PR.
+
+4. Usually use a single commit for a single issue, unless the issues are related or contain a significant code change.
+
+5. There are certain kind of files you do not add to source control (Like the vitual environment folder). If you already don't know about them, please do a quick search and find them and remove them from your commit. 
+
+6. When sending a PR have an appropriate title referencing the issue which it solves.
+
+7. If it is a UI change, add a screen shot of the new/fixed UI.
+
+8. Have a short description on what has gone wrong (like a root cause analysis and description of the fix), if that information is not already present in the issue.
+
+9. Do not ask us to review it in a separate comment. We will review it anyway.
 
 
 ## Coding Style and Standards
@@ -106,7 +140,8 @@ Avoid doing `$ git add --all` since it also adds the changes needed specifically
 
 If you need more references and Git expertise, a good resource is the [Git Book](https://git-scm.com/book/en/v2).
 
-
+##Troubleshooting
+If there are any other questions or concerns, you can either send a mail to the systers-dev mailing list  or join #macc channel in our slack group. To get an invitation to the slack group [click here] (http://systers.io/slack-systers-opensource/). 
 
 
 

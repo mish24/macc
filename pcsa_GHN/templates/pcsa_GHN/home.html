@@ -45,7 +45,7 @@
     <center><h2><font color="#2c0f00"> Get Help Now : Contacts </font></h2></center>
      {% if contact_list %}
         <div class="well">
-        <a href="{% url 'pcsa_GHN:create_contact' %}" class="btn btn-default">Add new Contact</a>
+        <a href="{% url 'pcsa_GHN:create_contact' %}" class="btn btn-default pull-right" >New Contact</a>
         <table class="table">
             <thead>
                 <tr>
@@ -68,7 +68,7 @@
                     </td>
                     <td>
 			<a href="{% url 'pcsa_GHN:view_contact' c.id %}" class="btn btn-default">View</a>
-                        <a href="{% url 'pcsa_GHN:edit_contact' c.id %}" class="btn btn-default">Edit</a>
+                        <a href="{% url 'pcsa_GHN:edit_contact' c.id %}" class="btn btn-info">Edit</a>
                     
                         <a href="{% url 'pcsa_GHN:delete_contact' c.id %}" class="btn btn-danger">Delete</a>
                     </td>

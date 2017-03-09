@@ -1,6 +1,13 @@
 {% extends "infohub/base.html" %}
 
 {% block content %}
+<style>  
+ .ast{
+	color:red;
+	size:11;
+	padding:3;
+    }
+</style>
 <br><br><br><br><br><br>
 <center><h2><font color="#2c0f00"> Malaria : infoHub</font> </h2></center>
 <div class="well">
@@ -9,7 +16,7 @@
     <form class="form-horizontal" action="{% url 'malaria:edit_post' post.id %}" method="post">
         {% csrf_token %}
         <div class="form-group">
-            <label class="col-sm-2 control-label inverted-font">Title</label>
+            <label class="col-sm-2 control-label inverted-font">Title <span class="ast" >*</span></label>
             <div class="col-sm-9">
                 <input class="form-control" type="text" name="title_post" value="{% if form.title_post.value %}{{ form.title_post.value }}{% endif %}">
                 <p class="help-block inverted-font">
@@ -24,7 +31,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label inverted-font">Description</label>
+            <label class="col-sm-2 control-label inverted-font">Description <span class="ast" >*</span></label>
             <div class="col-sm-9">
                 <textarea class="form-control" rows="18" name="description_post">{% if form.title_post.value %}{{ form.description_post.value }}{% endif %}</textarea>
                 <p class="help-block inverted-font">    

@@ -9,9 +9,9 @@
     <form class="form-horizontal" action="{% url 'pcsa_GHN:edit_contact' contact.id %}" method="post">
         {% csrf_token %}
         <div class="form-group">
-            <label class="col-sm-2 control-label inverted-font">Office Number</label>
+            <label class="col-sm-2 control-label inverted-font">Office address</label>
             <div class="col-sm-9">
-                <input class="form-control" type="text" name="Office Name" value="{% if form.office_name.value %}{{ form.office_name.value }}{% endif %}">
+                <input class="form-control" type="text" name="office_name" value="{% if form.office_name.value %}{{ form.office_name.value }}{% endif %}">
                 <p class="help-block inverted-font">
                     <strong>
                         {% if form.office_name.errors %}
@@ -26,7 +26,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label inverted-font">Phone Number</label>
             <div class="col-sm-9">
-                <input class="form-control" type="number" name="contact_number" value="{% if form.title.value %}{{ form.description.value }}{% endif %}" >
+                <input class="form-control" type="number" name="contact_number" value="{% if form.contact_number.value %}{{ form.contact_number.value }}{% endif %}" >
                 <p class="help-block inverted-font">
                     <strong>
                         {% if form.contact_number.errors %}
