@@ -130,4 +130,51 @@ def delete_posts(username):
         search_query = search_query.filter(owner=Pcuser.objects.filter(user__username__contains=username))
 
     search_query.delete()
+    
+def create_contact(office_name, contact_number):
+	
+	contact = None
+	#if all the required info is present
+	if office_name and contact_number:
+	#create an object only when both the fields are present
+		contact = Contact.objects.create(office_name=office_name,
+										contact_number=contact_number
+										)
+		contact.save()
+		
+	return contact
+
+def search_contact(office_name, contact_number):
+	"""
+	This function can search any contact based on the arguments provided.
+	By default it returns all the contacts. Either both, one or none of the 
+	arguments can be passed.
+	"""
+	search_query = Contact.objects.all()
+	if office_name:
+		#if the office name or a part of it is provided
+		search_query = search_query.filter(office_name__contains=office_name)
+	if contact_number:
+		search_query = search_query.filter(contact_number__contains=contact_number)
+		
+	return search_query
+	
+def count_contacts():
+	"""
+	Since the contacts are not associated with any user as of now, 
+	it just returns all the number of contacts by default.
+	"""
+	search_query = Contact.objects.all()
+	count = search_query.count()
+	
+	return count
+	
+def delete_contact():
+	"""
+	Since any contact is not associated with any user as of now,
+	This will delete all the contacts by default
+	"""
+	search_query = Contact.objects.all()
+	search_query.delete()
+	
 
