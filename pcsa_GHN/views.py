@@ -63,6 +63,8 @@ def create_contact(request):
             return render(request,
                           'pcsa_GHN/view_contact.html',
                           {'contact':contact})
+        else:
+        	return HttpResponseRedirect(reverse('webhub:index'))
 
     return render(request,
                   'pcsa_GHN/create_contact.html',

@@ -16,3 +16,4 @@ class PcsaPost(models.Model):
     class Meta:
     	verbose_name = 'Pcsa Post'
     	verbose_name_plural = 'Pcsa Posts'
+    	unique_together = (("title", "description"),)
