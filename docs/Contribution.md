@@ -140,8 +140,8 @@ Avoid doing `$ git add --all` since it also adds the changes needed specifically
 
 If you need more references and Git expertise, a good resource is the [Git Book](https://git-scm.com/book/en/v2).
 
-##Troubleshooting
-If there are any other questions or concerns, you can either send a mail to the systers-dev mailing list  or join #macc channel in our slack group. To get an invitation to the slack group [click here] (http://systers.io/slack-systers-opensource/). 
+## Troubleshooting
+If there are any other questions or concerns, you can either send a mail to the systers-dev mailing list or join #macc channel in our slack group. To get an invitation to the slack group [click here](http://systers.io/slack-systers-opensource/). 
 
 
 
