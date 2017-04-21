@@ -130,4 +130,47 @@ def delete_posts(username):
         search_query = search_query.filter(owner=Pcuser.objects.filter(user__username__contains=username))
 
     search_query.delete()
+    
+def search_contact(office):
+    search_query = ghnPost.objects.all()
+    """
+    This function searches for the contacts created by some
+    particular office address 
+    """
+    
+    if office:
+        search_query = search_query.filter(office__contains=office)
+
+    return search_query
+
+def count_contacts_by_pcuser(office):
+
+    search_query = ghnPost.objects.all()
+    """
+    This returns the number of total contacts added
+    by the Pcuser.
+    In case no username is provided, it will just
+    return the total number of contacts objects present 
+    in the database
+    """
+    if office:
+        search_query = search_query.filter(owner=Pcuser.objects.filter(office__contains=office))
+
+    count = search_query.count()
+
+    return count
+
+def delete_contacts(username):
+    """
+    It doesn't make sense to delete a contact
+    by office address
+    This can delete posts by any user, all contacts by default.
+    """
+    search_query = ghnPost.objects.all()
+
+    if username:
+        search_query = search_query.filter(owner=Pcuser.objects.filter(user__username__contains=username))
+
+    search_query.delete()
+
 
