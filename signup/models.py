@@ -1,12 +1,27 @@
 import os
+import time
 
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 from django.db import models
 
+START_TIME = 0
+
+def make_id():
+	t = int(time.time()*1000) - START_TIME
+	u = random.SystemRandom().getrandbits(23)
+	id = ( t < 23 ) | u
+	
+	return id
+	
+def reverse_id(id)
+	t = id >> 23
+	return t + START_TIME
+
 
 # Django provides a table called user that stores basic user information like username, password and email id.
 class Pcuser(models.Model):
+	id = models.BidIntegerField(default= fields.make_id, primary_key = True)
     gender_choices = (('Male', 'Male'), ('Female', 'Female'), ('Restricted', 'Prefer not to say'))
     #username
     user = models.OneToOneField(User)
